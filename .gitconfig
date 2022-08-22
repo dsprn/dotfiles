@@ -1,0 +1,76 @@
+[alias]
+	# view abbreviated SHA, description and history graph of the latest 20 commits
+	l = log --pretty=oneline -n 20 --graph --abbrev-commit
+
+	# view the current working tree status useing the short format
+	s = status -s
+
+	# pull in remote changes for the current repository and all its submodules
+	p = pull --recurse-submodules
+
+	# clone a repository including all submodules
+	c = clone --recursive
+
+	# diff changes
+	d = diff
+
+	# add changes
+	a = add
+
+	# show verbose output about tags, branches or remotes
+	tags = tag -l
+	branches = branch --all
+	remotes = remote --verbose
+
+	# list aliases
+	aliases = config --get-regexp alias
+
+	# amend the currently staged files to the latest commit
+	amend = commit --amend --reuse-message=HEAD
+
+	# list contributors with number of commits
+	contributors = shortlog --summary --numbered
+
+	# show the user email for the current repository
+	whoami = config user.email
+[apply]
+	# detect whitespace errors when applying a patch
+	whitespace = fix
+[branch]
+	# show most recently changed branches first
+	sort = -committerdate
+[core]
+	# speed up commands involving untracked files such as 'git status'
+	# https://git-scm.com/docs/git-update-index#_untracked_cache
+	untrackedCache = true
+[color "branch"]
+	current = yellow reverse
+	local = yellow
+	remote = green
+[color "diff"]
+	meta = yellow bold
+	frag = magenta bold # line info
+	old = red # deletions
+	new = green # additions
+[color "status"]
+	added = yellow
+	changed = green
+	untracked = cyan
+[commit]
+	# https://help.github.com/articles/signing-commits-using-gpg/
+	# gpgsign = true
+[diff]
+	# detect copies as well as renames
+	renames = copies
+[diff "bin"]
+	# use hexdump to diff binary files
+	textconv = hexdump -v -C
+[merge]
+	# include summaries of merged commits in newly created merge commit messages
+	log = true
+	tool = meld
+[user]
+	email = pierfranco.pasero@gmail.com
+	name = Pier Franco Pasero
+[credential]
+	helper = cache

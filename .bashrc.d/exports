@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+
+# adding golang bin path to system path
+export PATH=$PATH:$(go env GOPATH)/bin
+
+# make neovim the default editor
+# export EDITOR=nvim
+
+# increase bash history size (default is 500)
+export HISTSIZE=32768
+export HISTFILESIZE="${HISTSIZE}"
+
+# don't put duplicate lines or lines starting with space in the history
+export HISTCONTROL=ignoreboth
+
+# export MANPAGER='less -X'

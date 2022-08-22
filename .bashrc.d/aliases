@@ -1,0 +1,36 @@
+# postgres aliases
+alias psql='PAGER="less -S" psql'
+
+# system aliases
+alias ls='ls -F --color=auto'
+alias ll='ls -lh --group-directories-first'
+alias open='xdg-open'
+alias grep='grep -in --color=always'
+alias rgrep='grep -rino --max-count=3 --extended --color=always'
+alias tmux='tmux -2'
+alias ..='cd ..'
+alias config-init='/usr/bin/git init --bare $HOME/.dsprn_config'
+alias config='/usr/bin/git --git-dir=$HOME/.dsprn_config/ --work-tree=$HOME'
+alias top='htop -u dsprn'
+alias whitespace="sed 's/ /·/g;s/\t/￫/g;s/\r/§/g;s/$/¶/g'"
+alias more='less'
+# show the last recently modified files
+alias recent="find . -maxdepth 1 -type f -printf '%T@ %p\n' | sort -k1,1nr | head -10 | cut -d ' ' -f 2"
+
+# python aliases
+alias python='python3'
+alias pip='pip3'
+# alias venv='python3 -m venv $(basename "$PWD")-venv'
+alias venv='python3 -m venv venv'
+# alias act='source ./$(basename "$PWD")-venv/bin/activate'
+alias act='source venv/bin/activate'
+alias deact='deactivate'
+
+# golang aliases
+alias gotc='go test -coverprofile=$(basename "$PWD")-coverage.out > /dev/null 2>&1; go tool cover -html=$(basename "$PWD")-coverage.out'
+alias gobwin='GOOS=windows GOARCH=amd64 go build '
+alias goblin='GOOS=linux GOARCH=amd64 go build '
+alias gocheck='gofmt -e $1 > /dev/null'
+
+# network aliases
+alias public-ip='dig +short myip.opendns.com @resolver1.opendns.com'

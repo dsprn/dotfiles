@@ -1,0 +1,101 @@
+{
+    // ==== EDITOR SECTION ====
+    "editor.lineHeight": 21,
+    "editor.fontFamily": "Fira Code Medium",
+    "editor.fontSize": 15,
+    "editor.mouseWheelZoom": false,
+    "editor.renderControlCharacters": true,
+    "editor.minimap.renderCharacters":false,
+    "editor.fontLigatures": false,
+    "editor.showFoldingControls": "always",
+    "editor.wordWrap": "on",
+    "editor.gotoLocation.multipleDeclarations": "goto",
+    "editor.gotoLocation.multipleDefinitions": "goto",
+    "editor.gotoLocation.multipleImplementations": "goto",
+    "editor.gotoLocation.multipleReferences": "goto",
+    "editor.gotoLocation.multipleTypeDefinitions": "goto",
+    "editor.suggestSelection": "first",
+    "editor.multiCursorModifier": "alt",
+    "editor.lineNumbers": "on",
+    "editor.codeLens": false,
+    "editor.scrollBeyondLastLine": false,
+    "editor.minimap.enabled": false,
+    "editor.inlayHints.fontFamily": "Fira Code Medium",
+    "editor.inlayHints.fontSize": 13,
+    // the following options are used to disable automatic intellisense
+    "editor.quickSuggestions": {
+        "comments": "off",
+        "strings": "off",
+        "other": "off"
+    },
+    "editor.suggestOnTriggerCharacters": false,
+    "editor.wordBasedSuggestions": false,
+    "editor.parameterHints.enabled": false,
+    // change comments color for default theme
+    "editor.tokenColorCustomizations": {
+        "[Default Dark+]": {
+            "comments": "#6b728f"
+        }
+    },
+    // disable underline for variables and methods
+    "editor.semanticTokenColorCustomizations": {
+        "enabled": true,
+        "rules": {
+            "*.mutable": {
+                "underline": false,
+            }
+        }
+    },
+    // ==== WORKBENCH SECTION ====
+    // change status bar color
+    "workbench.colorCustomizations": {
+        "[Default Dark+]": {
+            "statusBar.background" : "#1A1A1A",
+            "statusBar.noFolderBackground" : "#212121",
+            "statusBar.debuggingBackground": "#263238",
+            "editor.lineHighlightBackground":  "#062f4a"
+        },
+    },
+    "workbench.editor.showTabs": true,
+    "workbench.startupEditor": "none",
+    "workbench.statusBar.visible": true,
+    // ==== TERMINAL SECTION ====
+    "terminal.integrated.fontSize": 15,
+    "terminal.integrated.lineHeight": 1.2,
+    "terminal.integrated.letterSpacing": 0,
+    "terminal.integrated.fontFamily": "Fira Code Medium",
+    // ==== DEBUG SECTION ====
+    "debug.inlineValues": "on",
+    "debug.console.fontFamily": "Fira Code Medium",
+    "debug.console.fontSize": 15,
+    // ==== TELEMETRY SECTION ====
+    "telemetry.telemetryLevel": "off",
+    // ==== VIM SECTION ====
+    "vim.disableExtension": true,
+    "vim.incsearch": true,
+    "vim.hlsearch": true,
+    "vim.ignorecase": true,
+    "vim.smartcase": true,
+    "vim.useSystemClipboard": true,
+    "vim.leader": "<space>",
+    "vim.normalModeKeyBindingsNonRecursive": [
+        {
+            "before": ["<C-[>"],
+            "commands": [":noh"]
+        }
+    ],
+    // ==== MISC SECTION ====
+    "http.proxyStrictSSL": false,
+    "go.useLanguageServer": true,
+    "extensions.ignoreRecommendations": true,
+    "explorer.openEditors.visible": 0,
+    "jupyter.sendSelectionToInteractiveWindow": true,
+    "jupyter.askForKernelRestart": false,
+    "window.titleBarStyle": "custom",
+    "window.commandCenter": true,
+    "timeline.excludeSources": [
+        "timeline.localHistory"
+    ],
+    "notebook.output.textLineLimit": 50,
+    "debug.allowBreakpointsEverywhere": true
+}

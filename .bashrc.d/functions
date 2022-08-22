@@ -1,0 +1,79 @@
+#!/usr/bin/env bash
+
+function get_distro() {
+	if [ -f /etc/os-release ]; then
+		# freedesktop.org and systemd
+		. /etc/os-release
+		OS=$NAME
+		VER=$VERSION_ID
+	elif type lsb_release >/dev/null 2>&1; then
+		# wiki.linuxfoundation.org/lsb/start
+		OS=$(lsb_release -si)
+		VER=$(lsb_release -sr)
+	elif [ -f /etc/lsb-release ]; then
+		# for some variations of Debian/Ubuntu without lsb_release command
+		. /etc/lsb-release
+		OS=$DISTRIB_ID
+		VER=$DISTRIB_RELEASE
+	elif [ -f /etc/debian_version ]; then
+		# older Debian/Ubuntu/etc
+		OS=Debian
+		VER=$(cat /etc/debian_version)
+	fi
+}
+
+function update() {
+	update_command=""
+
+	# check if it's a Debian or an Ubuntu
+	get_distro
+	if [[ $OS == 'Ubuntu' ]]; 
+	then
+		update_command="sudo apt update; sudo apt upgrade -y"
+	elif [[ $OS = 'Debian GNU/Linux' ]];
+	then
+		update_command="sudo apt update; sudo apt upgrade -y"
+	elif [[ $OS = 'Debian' ]];
+	then
+		update_command="sudo apt update; sudo apt upgrade -y"
+	elif [[ $OS = 'Fedora Linux' ]];
+	then
+		update_command="sudo dnf check-update; sudo dnf upgrade -y"
+	fi
+
+	# check if snap is installed
+	if command -v snap &> /dev/null
+	then
+		update_command="${update_command}; sudo snap refresh"
+	fi
+
+	# check if flatpak is installed
+	if command -v flatpak &> /dev/null
+	then
+		update_command="${update_command}; sudo flatpak update"
+	fi
+
+	# execute above command
+	eval $update_command
+}
+
+function vi() {
+	/usr/bin/nvim $@ 2>/dev/null
+	if [ $? != 0 ]; then
+		~/bin/nvim.appimage $@
+	fi;
+}
+
+function vim() {
+	vi $@
+}
+
+# returns the default editor to use with the system (replacing the value in env var $EDITOR)
+function get_default_editor() {
+	if ! command -v /usr/bin/nvim $@ 2>/dev/null 
+	then
+		EDITOR='nvim.appimage'
+	else
+		EDITOR='nvim'
+	fi;
+}
