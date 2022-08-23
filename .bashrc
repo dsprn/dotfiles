@@ -31,6 +31,11 @@ fi
 
 unset rc
 
+# source rust env file (present here when rust is installed without the distro package manager)
+if [ -f ~/.cargo/env ]; then
+		. "$HOME/.cargo/env"
+fi
+
 # DISPLAYED INFORMATIONS
 #  \t - time
 #  \d - date

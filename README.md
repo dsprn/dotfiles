@@ -44,7 +44,7 @@ config config --local status.showUntrackedFiles no
 You can use the script at the following Github Gist to automate the process described above
 ```
 cd ~
-curl -O https://gist.githubusercontent.com/dsprn/e7406058f01c2553b686c6a6c2905e75/raw/a623c33e905299bfcf922d375e11cb64d61fa4df/config_install.sh
+curl -O https://gist.githubusercontent.com/dsprn/e7406058f01c2553b686c6a6c2905e75/raw/86f0ded9ac221ed95f52ba83bec7f3dc507226ed/config_install.sh
 chmod u+x ./config_install.sh
 ./config_install.sh
 ```
