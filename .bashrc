@@ -1,3 +1,4 @@
+# SOURCED WHENEVER BASH IS STARTED IN INTERACTIVE MODE
 # Source global definitions
 
 # Fedora based distributions
@@ -20,6 +21,9 @@ export PATH
 # Uncomment the following line if you don't like systemctl's auto-paging feature:
 # export SYSTEMD_PAGER=
 
+# make less more friendly for non-text input files, see lesspipe(1)
+[ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
+
 # User specific aliases and functions
 if [ -d ~/.bashrc.d ]; then
 	for rc in ~/.bashrc.d/*; do
@@ -28,7 +32,6 @@ if [ -d ~/.bashrc.d ]; then
 		fi
 	done
 fi
-
 unset rc
 
 # source rust env file (present here when rust is installed without the distro package manager)
@@ -53,4 +56,9 @@ fi
 #   \[\e[1;34m\] = bold light blue
 #   \[\e[0m\]    = reset
 #
-PS1='[\u@\h \W]\$ '
+
+# fedora style prompt
+# PS1='[\u@\h \W]\$ '
+
+# debian style prompt
+PS1='\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '

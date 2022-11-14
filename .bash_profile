@@ -1,3 +1,4 @@
+# SOURCE WHENEVER BASH IS STARTED IN LOGIN MODE
 # .bash_profile
 
 # Get the aliases and functions
