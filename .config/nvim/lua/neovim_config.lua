@@ -15,12 +15,12 @@ vim.api.nvim_command("packadd packer.nvim")
 require('packer').startup({
     function(use)
         -- Packer can manage itself
-        use('wbthomason/packer.nvim')
-		use('Olical/conjure')
-		use('base16-project/base16-vim')
-		use('terrortylor/nvim-comment')
-        use('nvim-treesitter/nvim-treesitter')
-		use({ "yioneko/nvim-yati", requires = "nvim-treesitter/nvim-treesitter" })
+        use{'wbthomason/packer.nvim'}
+		use{'base16-project/base16-vim'}
+		use{'terrortylor/nvim-comment'}
+		use{'mcchrish/zenbones.nvim', requires = "rktjmp/lush.nvim"}
+        -- use{'Olical/conjure'}
+        use{'nvim-treesitter/nvim-treesitter'}
         if packer_bootstrap then
             require("packer").sync()
         end
@@ -36,10 +36,12 @@ require('packer').startup({
 -- --- TREESITTER CONFIG ---
 -- treesitter expand region/selection settings
 require('nvim-treesitter.configs').setup({
-    -- ensure_installed = "all",
+    ensure_installed = "all",
     highlight = {
-        enable = false,
-        additional_vim_regex_highlighting = true,
+        -- enable = false,
+        enable = true,
+        -- additional_vim_regex_highlighting = true,
+        additional_vim_regex_highlighting = false,
     },
     indent = {
         enable = true

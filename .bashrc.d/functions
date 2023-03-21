@@ -50,7 +50,7 @@ function update() {
 	# check if flatpak is installed
 	if command -v flatpak &> /dev/null
 	then
-		update_command="${update_command}; sudo flatpak update"
+		update_command="${update_command}; sudo flatpak update -y"
 	fi
 
 	# execute above command
@@ -58,9 +58,16 @@ function update() {
 }
 
 function vi() {
+	# /usr/bin/nvim $@ 2>/dev/null
 	/usr/bin/nvim $@ 2>/dev/null
-	if [ $? != 0 ]; then
+	if [ $? != 0 ] && [ -f /snap/bin/nvim ]; then
+		/snap/bin/nvim $@
+	fi;
+	if [ $? != 0 ] && [ -f ~/bin/nvim.appimage ]; then
 		~/bin/nvim.appimage $@
+	fi;
+	if [ $? != 0 ] && [ -f /usr/bin/vi ]; then
+		/usr/bin/vi $@
 	fi;
 }
 
@@ -76,4 +83,43 @@ function get_default_editor() {
 	else
 		EDITOR='nvim'
 	fi;
+}
+
+# create infrastructure to use gowatch alias
+function gowprep() {
+    # install necessary package
+	go install github.com/cespare/reflex@latest
+
+	# create watch script file if not present already
+	if [ ! -f ./.watch.sh ]; then
+        touch ./.watch.sh
+		echo '#!/bin/bash' >> ./.watch.sh
+		echo >> ./.watch.sh	# empty line
+		echo '# compile' >> ./.watch.sh
+		echo 'go build ./...' >> ./.watch.sh
+		echo >> ./.watch.sh	# empty line
+		echo '# run unit tests' >> ./.watch.sh
+		echo 'go test -v ./...' >> ./.watch.sh
+    else
+		echo 'File .watch.sh already present'
+    fi;
+}
+
+# create infrastructure to use pywatch alias
+function pywprep() {
+    # install necessary python modules in virtual environment
+	source ./.env/bin/activate
+	pip install watchdog pytest
+	deactivate
+
+	# create watch script file if not present already
+    if [ ! -f ./.watch.sh ]; then
+        touch ./.watch.sh
+		echo '#!/bin/bash' >> ./.watch.sh
+		echo >> ./.watch.sh	# empty line
+		echo '# run unit tests' >> ./.watch.sh
+		echo 'pytest --verbose --color=yes tests/' >> ./.watch.sh
+    else
+		echo 'File .watch.sh already present'
+    fi
 }
