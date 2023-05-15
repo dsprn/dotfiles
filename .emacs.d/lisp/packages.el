@@ -37,5 +37,8 @@
 (use-package markdown-mode)
 
 ;; text navigation
-; (use-package evil)
+(use-package evil)
 (use-package expand-region)
+
+;; UI
+(use-package doom-themes)

@@ -1,11 +1,12 @@
 {
     // ==== EDITOR SECTION ====
-    "editor.lineHeight": 21,
-    "editor.fontFamily": "Fira Code Medium",
-    "editor.fontSize": 15,
+    "editor.lineHeight": 25,
+    "editor.fontFamily": "JetBrains Mono Medium",
+    "editor.fontSize": 17,
     "editor.mouseWheelZoom": false,
     "editor.renderControlCharacters": true,
     "editor.minimap.renderCharacters":false,
+    "editor.minimap.showSlider": "always",
     "editor.fontLigatures": false,
     "editor.showFoldingControls": "always",
     "editor.wordWrap": "on",
@@ -18,23 +19,25 @@
     "editor.multiCursorModifier": "alt",
     "editor.lineNumbers": "on",
     "editor.codeLens": false,
-    "editor.scrollBeyondLastLine": false,
-    "editor.minimap.enabled": false,
-    "editor.inlayHints.fontFamily": "Fira Code Medium",
+    "editor.scrollBeyondLastLine": true,
+    "editor.inlayHints.fontFamily": "JetBrains Mono Medium",
     "editor.inlayHints.fontSize": 13,
     // the following options are used to disable automatic intellisense
-    "editor.quickSuggestions": {
-        "comments": "off",
-        "strings": "off",
-        "other": "off"
-    },
-    "editor.suggestOnTriggerCharacters": false,
-    "editor.wordBasedSuggestions": false,
-    "editor.parameterHints.enabled": false,
+    // "editor.quickSuggestions": {
+    //     "comments": "off",
+    //     "strings": "off",
+    //     "other": "off"
+    // },
+    // "editor.suggestOnTriggerCharacters": false,
+    // "editor.wordBasedSuggestions": false,
+    // "editor.parameterHints.enabled": false,
     // change comments color for default theme
     "editor.tokenColorCustomizations": {
         "[Default Dark+]": {
             "comments": "#6b728f"
+        },
+        "[Default Dark Modern]": {
+            "comments": "#585e75"
         }
     },
     // disable underline for variables and methods
@@ -60,18 +63,18 @@
     "workbench.startupEditor": "none",
     "workbench.statusBar.visible": true,
     // ==== TERMINAL SECTION ====
-    "terminal.integrated.fontSize": 15,
-    "terminal.integrated.lineHeight": 1.2,
+    "terminal.integrated.fontSize": 17,
+    "terminal.integrated.lineHeight": 1.0,
     "terminal.integrated.letterSpacing": 0,
-    "terminal.integrated.fontFamily": "Fira Code Medium",
+    "terminal.integrated.fontFamily": "JetBrains Mono Medium",
     // ==== DEBUG SECTION ====
     "debug.inlineValues": "on",
-    "debug.console.fontFamily": "Fira Code Medium",
-    "debug.console.fontSize": 15,
+    "debug.console.fontFamily": "JetBrains Mono Medium",
+    "debug.console.fontSize": 17,
     // ==== TELEMETRY SECTION ====
     "telemetry.telemetryLevel": "off",
     // ==== VIM SECTION ====
-    "vim.disableExtension": true,
+    "vim.disableExtension": false,
     "vim.incsearch": true,
     "vim.hlsearch": true,
     "vim.ignorecase": true,
@@ -89,13 +92,11 @@
     "go.useLanguageServer": true,
     "extensions.ignoreRecommendations": true,
     "explorer.openEditors.visible": 0,
-    "jupyter.sendSelectionToInteractiveWindow": true,
     "jupyter.askForKernelRestart": false,
     "window.titleBarStyle": "custom",
     "window.commandCenter": true,
-    "timeline.excludeSources": [
-        "timeline.localHistory"
-    ],
     "notebook.output.textLineLimit": 50,
-    "debug.allowBreakpointsEverywhere": true
+    "debug.allowBreakpointsEverywhere": true,
+    "jupyter.interactiveWindow.textEditor.executeSelection": true,
+    "editor.renderWhitespace": "none"
 }
