@@ -10,7 +10,7 @@
 (setq-default cursor-type 'box)
 
 ;; set font (only works on GUI Emacs)
-(setq default-frame-alist '((font . "Fira Code Medium-12")))
+(setq default-frame-alist '((font . "JetBrains Mono Medium-13")))
 
 ;; invert colors for default dark theme (lighter than downloading a theme but not as pretty)
 ;; (invert-face 'default)
