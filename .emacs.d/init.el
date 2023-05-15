@@ -1,156 +1,28 @@
-;; setting remote repository
-(require 'package)
-(add-to-list 'package-archives '("melpa-stable" . "https://stable.melpa.org/packages/") t)
-(package-initialize)
+;; ********** init.el
+;; EMACS INIT CONFIG BOOTING THE LOADING PROCESS
 
-;; install packages at first start
-(unless (package-installed-p 'use-package)
-  (package-refresh-contents)
-  (package-install 'use-package))
+;; load files where real configs are
+(load "~/.emacs.d/lisp/packages.el")
+(load "~/.emacs.d/lisp/paths.el")
+(load "~/.emacs.d/lisp/generic.el")
+(load "~/.emacs.d/lisp/modes.el")
+(load "~/.emacs.d/lisp/bindings.el")
+(load "~/.emacs.d/lisp/ui.el")
+(load "~/.emacs.d/lisp/python.el")
 
-(require 'use-package)
-(setq use-package-always-ensure t)
-
-(use-package expand-region)
-(use-package magit)
-(use-package cider)
-
-;; basic settings
-; if value is t open the scratch buffer
-(setq initial-buffer-choice t)
-(setq shell-file-name "bash")
-(setq shell-command-switch "-ic")
-
-;; backups and autosaves
-;; create dirs if they don't exist
-(make-directory "~/.emacs.d/autosaves/" t)
-(make-directory "~/.emacs.d/backups/" t)
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(auto-save-file-name-transforms '((".*" "~/.emacs.d/autosaves/\\1" t)))
- '(backup-directory-alist '((".*" . "~/.emacs.d/backups")))
  '(custom-safe-themes
-   '("06f0b439b62164c6f8f84fdda32b62fb50b6d00e8b01c2208e55543a6337433a" default))
- '(package-selected-packages '(expand-region magit use-package)))
-
-;; silencing bell
-(setq ring-bell-function 'ignore)
-
-(ido-mode t)
-(global-visual-line-mode t)
-(show-paren-mode t)
-(electric-pair-mode t)
-(setq column-number-mode t)
-(setq-default tab-width 4)
-(setq-default dired-listing-switches "-lah --group-directories-first")
-(setq-default dired-recursive-copies 'always)
-(setq-default dired-recursive-deletes 'always)
-(display-time-mode t)
-(prefer-coding-system 'utf-8)
-;; do not use tabs when indenting
-(setq-default indent-tabs-mode nil)
-
-(setq backup-by-copying t)
-(delete-selection-mode)
-(put 'upcase-region 'disabled nil)
-
-;; enabling narrow region shortcuts
-(put 'narrow-to-region 'disabled nil)
-
-;; unbinding some default keymaps
-(dolist (key '("\M-v" "\C-v" "\C-xm"))
-  (global-unset-key key))
-
-;; some of steve yegge's effective emacs bindings
-(global-set-key (kbd "C-x C-m") 'execute-extended-command)     
-(global-set-key (kbd "C-c C-m") 'execute-extended-command)
-
-(global-set-key (kbd "C-x C-k") 'kill-region)
-(global-set-key (kbd "C-c C-k") 'kill-region)
-(global-set-key (kbd "C-a") 
-                (lambda ()
-                  (interactive)
-                  (if (= (point) (progn (back-to-indentation) (point)))
-                      (beginning-of-line))))
-(global-set-key (kbd "C-e") 'end-of-line)
-
-;; bindings settings
-(global-set-key (kbd "TAB") (lambda ()
-                              (interactive)
-                              (if (region-active-p)
-                                  (progn
-                                    (indent-region (region-beginning) (region-end))
-                                    (untabify (region-beginning) (region-end)))
-                                (progn (insert "\t")
-                                       (untabify (line-beginning-position) (line-end-position))))))
-
-(global-set-key (kbd "M-h") 'backward-word)
-(global-set-key (kbd "M-j") 'next-line)
-(global-set-key (kbd "M-k") 'previous-line)
-(global-set-key (kbd "M-l") 'forward-word)
-(global-set-key (kbd "C-c l") 
-                (lambda ()
-                  (interactive)
-                  (load-file (concat user-emacs-directory "init.el"))))
-(global-set-key (kbd "C-c r") 'replace-string)
-(global-set-key (kbd "C-c i") 
-                (lambda ()
-                  (interactive)
-                  (find-file (concat
-                              (getenv "HOME")
-                              "/.emacs.d/README.org"))))
-(global-set-key (kbd "C-c h") 
-                (lambda ()
-                  (interactive)
-                  (dired (cons (getenv "HOME") "workspace/"))))
-(global-set-key (kbd "C-x p") 'beginning-of-buffer)
-(global-set-key (kbd "C-x n") 'end-of-buffer)
-(global-set-key (kbd "M-=") 'er/expand-region)
-(global-set-key (kbd "M--") 'er/contract-region)
-(global-set-key (kbd "M-n") 'scroll-up-command)
-(global-set-key (kbd "M-p") 'scroll-down-command)
-(global-set-key (kbd "M-u") 'upcase-region)
-(global-set-key (kbd "C-c C-u") 'capitalize-region)
-(global-set-key (kbd "M-[") 'backward-paragraph)
-(global-set-key (kbd "M-]") 'forward-paragraph)
-
-;; org-mode
-(global-set-key (kbd "C-c t") 
-                (lambda ()
-                  (interactive)
-                  (org-ctrl-c-ctrl-c)
-                  (org-babel-tangle)))
-
-;; cider
-;; (global-set-key (kbd "M-RET") 'cider-eval-last-sexp)
-
-;; dired
-(require 'dired)
-(define-key dired-mode-map "-" 'dired-up-directory)
-
-;; org-mode
-(setq org-src-tab-acts-natively t)
-
-;; tmpl mode association
-(add-to-list 'auto-mode-alist '("\\.tmpl\\'" . html-mode))
-
+   '("d87f56d9a1171e45cd17bc229b0aeda729d9f980f256551f5d535fef75e6c1e9" default))
+ '(package-selected-packages
+   '(auto-virtualenv zenburn-theme use-package tree-sitter-langs markdown-mode magit expand-region evil doom-themes cider base16-theme)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  )
-
-;; ui settings
-(setq-default cursor-type 'box)
-(tool-bar-mode -1)
-(menu-bar-mode -1)
-(scroll-bar-mode -1)
-(setq default-frame-alist '((font . "Fira Code Medium-12")))
-
-;; theme config
-(invert-face 'default)

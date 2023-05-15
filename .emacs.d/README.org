@@ -21,9 +21,10 @@
      (require 'use-package)
      (setq use-package-always-ensure t)
 
-     (use-package expand-region)
-     (use-package magit)
-     (use-package cider)
+     (use-package expand-region :ensure t)
+     (use-package magit :ensure t)
+     (use-package cider :ensure t)
+     (use-package evil :ensure t)
 
    #+END_SRC
 
@@ -33,9 +34,11 @@
    #+BEGIN_SRC emacs-lisp
 
      ;; basic settings
-     ; if value is t open the scratch buffer
+     ; if initial-buffer-choice value is t open the scratch buffer
      (setq initial-buffer-choice t)
-     (setq shell-file-name "bash")
+
+     ;; shell
+     (setq shell-file-name "/bin/bash")
      (setq shell-command-switch "-ic")
 
      ;; backups and autosaves
@@ -57,7 +60,9 @@
      ;; silencing bell
      (setq ring-bell-function 'ignore)
 
+     ;; toggle ido mode on/off
      (ido-mode t)
+     
      (global-visual-line-mode t)
      (show-paren-mode t)
      (electric-pair-mode t)
@@ -192,6 +197,7 @@
      (setq default-frame-alist '((font . "Fira Code Medium-12")))
 
      ;; theme config
-     (invert-face 'default)
+     ;; (invert-face 'default)
+     (load-theme 'doom-tomorrow-night t)
 
    #+END_SRC

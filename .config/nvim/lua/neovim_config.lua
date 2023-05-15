@@ -18,8 +18,7 @@ require('packer').startup({
         use{'wbthomason/packer.nvim'}
 		use{'base16-project/base16-vim'}
 		use{'terrortylor/nvim-comment'}
-		use{'mcchrish/zenbones.nvim', requires = "rktjmp/lush.nvim"}
-        -- use{'Olical/conjure'}
+        use{'Olical/conjure'}
         use{'nvim-treesitter/nvim-treesitter'}
         if packer_bootstrap then
             require("packer").sync()

@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
 
-# postgres aliases
+# ********** POSTGRES
 alias psql='PAGER="less -S" psql'
 
-# system aliases
+# ********** SYSTEM
 alias ls='ls -F --color=auto'
 alias ll='ls -lh --group-directories-first'
 alias open='xdg-open'
@@ -19,31 +19,33 @@ alias more='less'
 alias tree='tree -C'
 # show the last recently modified files
 alias recent="find . -maxdepth 1 -type f -printf '%T@ %p\n' | sort -k1,1nr | head -10 | cut -d ' ' -f 2"
+alias xxd="xxd -g 1"
 
-# python aliases
+# ********** PYTHON
 alias python='python3'
 alias pip='pip3'
 # alias venv='python3 -m venv $(basename "$PWD")-venv'
 # alias venv='python3 -m venv venv'
-alias venv='python3 -m venv .env'
+alias simple-venv='python3 -m venv .venv'
+alias ipython-venv='python3 -m venv .venv; source .venv/bin/activate; pip install ipython; deactivate'
 # alias act='source ./$(basename "$PWD")-venv/bin/activate'
 # alias act='source venv/bin/activate'
-alias act='source .env/bin/activate'
+alias act='source .venv/bin/activate'
 alias deact='deactivate'
 alias pywatch="watchmedo shell-command --patterns='*.py' --recursive --command='sh ./.watch.sh' ."
 
-# golang aliases
+# ********** GOLANG
 alias gotc='go test -coverprofile=$(basename "$PWD")-coverage.out > /dev/null 2>&1; go tool cover -html=$(basename "$PWD")-coverage.out'
 alias gobwin='GOOS=windows GOARCH=amd64 go build '
 alias goblin='GOOS=linux GOARCH=amd64 go build '
 alias gocheck='gofmt -e $1 > /dev/null'
 alias gowatch="reflex -r '\.go$' -s -- sh ./.watch.sh"
 
-# network aliases
+# ********** NETWORK
 alias public-ip='dig +short myip.opendns.com @resolver1.opendns.com'
 
-# ssh
+# ********** SSH
 alias githubsshkey='eval "$(ssh-agent -s)"; ssh-add ~/.ssh/github'
 
-# clojure
+# ********** CLOJURE
 alias nrepl="clojure -Sdeps '{:deps {nrepl/nrepl {:mvn/version \"LATEST\"}}}' -m nrepl.cmdline"

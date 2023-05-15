@@ -3,7 +3,7 @@ set hlsearch
 set incsearch
 set backspace=indent,eol,start
 set ruler
-" set number
+set number
 " detects if a file has been changed outside of vim and reloads it
 set autoread
 set mouse=a
@@ -38,6 +38,7 @@ set undofile
 set undodir=~/.config/nvim/undos//
 set undolevels=1000
 set tabstop=4
+set wrap
 
 " --- AUTOCOMMANDS ---
 " always open the help buffer in a vertical split to the right
@@ -64,9 +65,8 @@ nnoremap <A-Left> 15<C-W>>
 nnoremap <A-Up> 15<C-W>+
 nnoremap <A-Down> 15<C-W>-
 
-" copy/paste to different buffer
+" copy/paste from/to different instances of Vim using a buffer file
 vmap <C-c> :w! ~/.config/nvim/.vimbuffer<CR>
-" nmap <C-c> :.w! ~/.config/nvim/.vimbuffer<CR>
 map <C-p> :r ~/.config/nvim/.vimbuffer<CR>
 
 " --- DEFAULT THEME CHANGES ---
@@ -99,6 +99,20 @@ if exists(':lua')
 
 	" bash specific semantic highlights
 	" highlight @parameter.bash guifg=#63d47d
+	
+	" changing Conjure map for evaluating selection
+	" vnoremap <M-\> :ConjureEvalVisual<CR>
+	" lua vim.api.nvim_set_keymap("v", "<M-\\>", ":ConjureEvalVisual<CR>", { silent = true })
+	lua vim.api.nvim_set_keymap("v", "<localleader>ef", ":ConjureEvalVisual<CR>", { silent = true })
+
+	" enamble wrapping in Conjure HUD/log
+	let g:conjure#log#wrap = 1
+
+	" HUD border style
+	let g:conjure#log#hud#border = "none"
+
+	" change python Conjure REPL command to ipython
+	" let g:conjure#client#python#stdio#command = "ipython -i"
 
     echo 'loaded Neovim additional configs'
 end
