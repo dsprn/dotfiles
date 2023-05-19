@@ -23,3 +23,4 @@
 (setq-default tab-width 4)
 (setq-default indent-tabs-mode nil)	; do not use tabs when indenting
 (prefer-coding-system 'utf-8)
+(delete-selection-mode 1)           ; typed text replaces selected text if a selection is active
