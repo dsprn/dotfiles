@@ -3,7 +3,7 @@ set hlsearch
 set incsearch
 set backspace=indent,eol,start
 set ruler
-set number
+" set number
 " detects if a file has been changed outside of vim and reloads it
 set autoread
 set mouse=a

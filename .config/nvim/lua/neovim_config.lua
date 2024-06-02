@@ -19,7 +19,7 @@ require('packer').startup({
 		use{'base16-project/base16-vim'}
 		use{'terrortylor/nvim-comment'}
         use{'Olical/conjure'}
-        use{'nvim-treesitter/nvim-treesitter'}
+        -- use{'nvim-treesitter/nvim-treesitter'}
         if packer_bootstrap then
             require("packer").sync()
         end
@@ -34,27 +34,27 @@ require('packer').startup({
 
 -- --- TREESITTER CONFIG ---
 -- treesitter expand region/selection settings
-require('nvim-treesitter.configs').setup({
-    ensure_installed = "all",
-    highlight = {
-        -- enable = false,
-        enable = true,
-        -- additional_vim_regex_highlighting = true,
-        additional_vim_regex_highlighting = false,
-    },
-    indent = {
-        enable = true
-    },
-    incremental_selection = {
-        enable = true,
-        keymaps = {
-            init_selection = "<M-=>",
-            node_incremental = "<M-=>",
-            node_decremental = "<M-->",
-        },
-    },
-    yati = { enable = true },
-})
+-- require('nvim-treesitter.configs').setup({
+--     ensure_installed = "all",
+--     highlight = {
+--         -- enable = false,
+--         enable = true,
+--         -- additional_vim_regex_highlighting = true,
+--         additional_vim_regex_highlighting = false,
+--     },
+--     indent = {
+--         enable = true
+--     },
+--     incremental_selection = {
+--         enable = true,
+--         keymaps = {
+--             init_selection = "<M-=>",
+--             node_incremental = "<M-=>",
+--             node_decremental = "<M-->",
+--         },
+--     },
+--     yati = { enable = true },
+-- })
 
 -- --- COMMENT PLUGIN CONFIG ---
 require('nvim_comment').setup()

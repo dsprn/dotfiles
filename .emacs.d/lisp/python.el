@@ -1,5 +1,4 @@
 ;; ********** python.el
-;; NECESSARY SETTINGS FOR A MORE DYNAMIC PYTHON DEVELOPMENT WORKFLOW
 
 ;; import necessary functionalities
 (require 'auto-virtualenv)

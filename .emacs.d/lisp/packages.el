@@ -1,5 +1,4 @@
 ;; ********** packages.el
-;; CONFIGURE REMOTE REPOSITORIES FROM WHICH EMACS GETS THE DESIRED PACKAGES
 
 ;; ********** INITIALIZATION
 (setq package-archives
@@ -18,7 +17,7 @@
         use-package-expand-minimally t))
 
 (eval-and-compile
- (require 'use-package))
+  (require 'use-package))
 
 
 ;; ********** INSTALL PACKAGES
@@ -26,8 +25,8 @@
 (use-package magit)
 
 ;; clojure
-(use-package clojure-mode)
-(use-package cider)
+; (use-package clojure-mode)
+; (use-package cider)
 
 ;; python
 (use-package auto-virtualenv)

@@ -123,3 +123,7 @@ function pywprep() {
 		echo 'File .watch.sh already present'
     fi
 }
+
+function stacked_dirs() {
+    dirs -v | tail +2 | wc -l
+}

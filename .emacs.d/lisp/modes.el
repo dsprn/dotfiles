@@ -1,5 +1,4 @@
 ;; ********** modes.el
-;; ALL MODES RELATED CONFIGS
 
 ;; dired
 (require 'dired)

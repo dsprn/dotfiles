@@ -20,6 +20,9 @@ alias tree='tree -C'
 # show the last recently modified files
 alias recent="find . -maxdepth 1 -type f -printf '%T@ %p\n' | sort -k1,1nr | head -10 | cut -d ' ' -f 2"
 alias xxd="xxd -g 1"
+alias pp="pushd > /dev/null"
+alias po="popd > /dev/null"
+alias d="dirs -v | tail +2"
 
 # ********** PYTHON
 alias python='python3'

@@ -1,11 +1,11 @@
 {
     // ==== EDITOR SECTION ====
-    "editor.lineHeight": 25,
-    "editor.fontFamily": "JetBrains Mono Medium",
-    "editor.fontSize": 17,
+    "editor.lineHeight": 24,
+    "editor.fontFamily": "Jetbrains Mono Medium",
+    "editor.fontSize": 18,
     "editor.mouseWheelZoom": false,
     "editor.renderControlCharacters": true,
-    "editor.minimap.renderCharacters":false,
+    "editor.minimap.renderCharacters": false,
     "editor.minimap.showSlider": "always",
     "editor.fontLigatures": false,
     "editor.showFoldingControls": "always",
@@ -20,7 +20,7 @@
     "editor.lineNumbers": "on",
     "editor.codeLens": false,
     "editor.scrollBeyondLastLine": true,
-    "editor.inlayHints.fontFamily": "JetBrains Mono Medium",
+    "editor.inlayHints.fontFamily": "Jetbrains Mono Medium",
     "editor.inlayHints.fontSize": 13,
     // the following options are used to disable automatic intellisense
     // "editor.quickSuggestions": {
@@ -53,23 +53,23 @@
     // change status bar color
     "workbench.colorCustomizations": {
         "[Default Dark+]": {
-            "statusBar.background" : "#1A1A1A",
-            "statusBar.noFolderBackground" : "#212121",
+            "statusBar.background": "#1A1A1A",
+            "statusBar.noFolderBackground": "#212121",
             "statusBar.debuggingBackground": "#263238",
-            "editor.lineHighlightBackground":  "#062f4a"
+            "editor.lineHighlightBackground": "#062f4a"
         },
     },
-    "workbench.editor.showTabs": true,
+    "workbench.editor.showTabs": "multiple",
     "workbench.startupEditor": "none",
     "workbench.statusBar.visible": true,
     // ==== TERMINAL SECTION ====
-    "terminal.integrated.fontSize": 17,
-    "terminal.integrated.lineHeight": 1.0,
+    "terminal.integrated.fontSize": 18,
+    "terminal.integrated.lineHeight": 1.1,
     "terminal.integrated.letterSpacing": 0,
-    "terminal.integrated.fontFamily": "JetBrains Mono Medium",
+    "terminal.integrated.fontFamily": "Jetbrains Mono Medium",
     // ==== DEBUG SECTION ====
     "debug.inlineValues": "on",
-    "debug.console.fontFamily": "JetBrains Mono Medium",
+    "debug.console.fontFamily": "Jetbrains Mono Medium",
     "debug.console.fontSize": 17,
     // ==== TELEMETRY SECTION ====
     "telemetry.telemetryLevel": "off",
@@ -83,20 +83,26 @@
     "vim.leader": "<space>",
     "vim.normalModeKeyBindingsNonRecursive": [
         {
-            "before": ["<C-[>"],
-            "commands": [":noh"]
+            "before": [
+                "<C-[>"
+            ],
+            "commands": [
+                ":noh"
+            ]
         }
     ],
     // ==== MISC SECTION ====
     "http.proxyStrictSSL": false,
     "go.useLanguageServer": true,
     "extensions.ignoreRecommendations": true,
-    "explorer.openEditors.visible": 0,
-    "jupyter.askForKernelRestart": false,
+    // "explorer.openEditors.visible": 0,
     "window.titleBarStyle": "custom",
     "window.commandCenter": true,
     "notebook.output.textLineLimit": 50,
     "debug.allowBreakpointsEverywhere": true,
-    "jupyter.interactiveWindow.textEditor.executeSelection": true,
-    "editor.renderWhitespace": "none"
+    "editor.renderWhitespace": "none",
+    "editor.formatOnSave": true,
+    "editor.hover.enabled": false,
+    "editor.minimap.enabled": false,
+    "editor.cursorBlinking": "solid",
 }

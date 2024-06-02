@@ -1,11 +1,14 @@
 ;; ********** generic.el
-;; CONFIGURE SOME DIRED AND OTHER MODES SETTINGS, PLUS SOME STARTING STUFF
 
 ;; variables
 (setq initial-buffer-choice t)		; select scratch buffer at start
 (setq ring-bell-function 'ignore)	; silence bell
 (setq backup-by-copying t)
 (setq column-number-mode t)
+
+;; custom file
+(setq custom-file "~/.emacs.d/lisp/emacs-custom.el")
+(load "~/.emacs.d/lisp/emacs-custom.el")
 
 ;; modes specific settings
 (ido-mode t)

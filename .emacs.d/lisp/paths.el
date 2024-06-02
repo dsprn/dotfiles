@@ -1,5 +1,4 @@
 ;; ********** paths.el
-;; CONFIGURE PATHS OF FILES BACKUPS AND AUTOSAVES
 
 ;; backups and autosaves
 ;; create dirs if they don't exist
