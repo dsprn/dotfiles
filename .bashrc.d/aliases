@@ -16,6 +16,7 @@ alias config='/usr/bin/git --git-dir=$HOME/.dsprn_config/ --work-tree=$HOME'
 alias top='htop -u dsprn'
 alias whitespace="sed 's/ /·/g;s/\t/￫/g;s/\r/§/g;s/$/¶/g'"
 alias more='less'
+alias less='less -R'
 alias tree='tree -C'
 # show the last recently modified files
 alias recent="find . -maxdepth 1 -type f -printf '%T@ %p\n' | sort -k1,1nr | head -10 | cut -d ' ' -f 2"
@@ -49,6 +50,7 @@ alias public-ip='dig +short myip.opendns.com @resolver1.opendns.com'
 
 # ********** SSH
 alias githubsshkey='eval "$(ssh-agent -s)"; ssh-add ~/.ssh/github'
+alias a='tmux a'
 
 # ********** CLOJURE
 alias nrepl="clojure -Sdeps '{:deps {nrepl/nrepl {:mvn/version \"LATEST\"}}}' -m nrepl.cmdline"
